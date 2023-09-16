@@ -14,6 +14,23 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    colors: <any>{
+      primary: "#FFC93E",
+      secondary: "#111D5E",
+      third: "#2563EB",
+      fourth: "#F9FAFB",
+      transparent: "transparent",
+      fifth: "#ffffff",
+      sixth: "#CDCDCD",
+      seventh: "#617187",  // grey
+    },
+    screens: {
+      mac: { max: "1536px" },
+      desktop: { max: "1280px" },
+      laptop: { max: "1024px" },
+      tablet: { max: "768px" },
+      mobile: { max: "500px" },
+    },
   },
   plugins: [],
 }
