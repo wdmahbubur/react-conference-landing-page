@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 import Typography from "../shared/Typography";
+import Link from "next/link";
 
 const HeroSection: FC = () => {
   return (
@@ -16,7 +17,7 @@ const HeroSection: FC = () => {
         <Image
           src="/hero-bg-line-sm.png"
           alt=""
-          className="absolute hero-section-bg-line sm:hidden"
+          className="absolute hero-section-bg-line hidden mobile:block"
           height={700}
           width={750}
         />
@@ -37,9 +38,11 @@ const HeroSection: FC = () => {
           </div>
           <div className="w-2/3 px-6 mobile:px-0 tablet:w-full mobile:mt-6">
             <Typography.H4>
-              Lorem uis diam turpis quam id fermentum.In quis diam turpis quam
-              id fermentum..id fermentum.In quis diam turpis quam id fermentum.
-              fermentum.
+              <p className="text-seventh mobile:text-secondary">
+                Lorem uis diam turpis quam id fermentum.In quis diam turpis quam
+                id fermentum..id fermentum.In quis diam turpis quam id
+                fermentum. fermentum.
+              </p>
             </Typography.H4>
             <button className="py-3 bg-primary rounded-3xl px-6 w-72 mobile:w-44 mt-10 flex items-center gap-2 justify-center tablet:mx-auto">
               Buy Tickets
@@ -63,11 +66,14 @@ const HeroSection: FC = () => {
       </div>
 
       <div className="w-1/3 tablet:w-full">
-        <div className="relative after:absolute after:-bottom-16 after:-left-16 mobile:after:left-72 mobile:after:-bottom-12 mobile:after:w-[90px] mobile:after:h-[90px] mobile:after:bg-contain after:w-[130px] after:h-[130px] after:bg-[url('/Star.png')] after:bg-no-repeat after:bg-left-bottom h-[400px] tablet:w-[80%] tablet:mx-auto mobile:w-full mobile:h-[370px]">
+        <div className="relative after:absolute after:-bottom-16 after:-left-16 mobile:after:left-3/4 mobile:after:-bottom-12 mobile:after:w-[90px] mobile:after:h-[90px] mobile:after:bg-contain after:w-[130px] after:h-[130px] after:bg-[url('/Star.png')] after:bg-no-repeat after:bg-left-bottom h-[400px] tablet:w-[80%] tablet:mx-auto mobile:w-full mobile:h-[370px]">
           <Image src="/hero-01.png" alt="hero-image" fill />
         </div>
       </div>
-      <div className="absolute bottom-24 left-1/2 cursor-pointer mobile:hidden">
+      <Link
+        className="absolute bottom-24 left-1/2 cursor-pointer mobile:hidden"
+        href="#conferenceTimeline"
+      >
         <span className="absolute -rotate-90 w-full whitespace-nowrap">
           Scroll Down
         </span>
@@ -88,7 +94,7 @@ const HeroSection: FC = () => {
             fill="#0A142F"
           />
         </svg>
-      </div>
+      </Link>
     </section>
   );
 };

@@ -19,7 +19,7 @@ const H2: FC<TProps> = ({ children }) => (
 
 const H3: FC<TProps> = ({ children, bold }) => (
   <h2
-    className={`text-[20px] leading-[40px] tablet:leading-[30px] mobile:text-[18px] mobile:leading-[30px] text-gray opacity-80 ${
+    className={`text-[20px] leading-[40px] tablet:leading-[30px] mobile:text-[18px] mobile:leading-[30px] opacity-100 ${
       bold ? "font-bold" : "font-normal"
     }`}
   >
@@ -29,7 +29,7 @@ const H3: FC<TProps> = ({ children, bold }) => (
 
 const H4: FC<TProps> = ({ children, bold }) => (
   <h2
-    className={`text-[18px] leading-[22px] text-secondary opacity-80 mobile:text-[16px] mobile:leading-[20px] ${
+    className={`text-[18px] leading-[22px] opacity-80 mobile:text-[16px] mobile:leading-[20px] ${
       bold ? "font-bold" : "font-normal"
     }`}
   >
@@ -44,7 +44,9 @@ const H5: FC<TProps> = ({ children }) => (
 );
 
 const H6: FC<TProps> = ({ children }) => (
-  <h2 className="text-[14px] leading-[16px] font-normal">{children}</h2>
+  <p className="text-[14px] mobile:text-[12px] leading-[16px] font-normal">
+    {children}
+  </p>
 );
 
 const Typography = { H1, H2, H3, H4, H5, H6 };
