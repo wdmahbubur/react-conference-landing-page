@@ -129,7 +129,16 @@ const SideBarMenu: FC<IProps> = ({
         </MenuItem>
       );
     },
-    [moveMenuItem, selectedMenu, screenSize, setSelectedMenu]
+    [
+      moveMenuItem,
+      selectedMenu,
+      conference?.organizer,
+      conference?.speakers,
+      conference?.schedules,
+      conference?.sponsors,
+      screenSize,
+      setSelectedMenu,
+    ]
   );
 
   return (
