@@ -1,21 +1,34 @@
 import React, { FC } from "react";
 import Typography from "../shared/Typography";
+import formatDate from "@/utils/formatDate";
+import Link from "next/link";
 
 interface CProps {
+  id?: string;
+  name?: string;
+  date?: string;
+  slogan?: string;
   active?: Boolean;
   lastElement?: Boolean;
 }
-
-const TimelineItemRight: FC<CProps> = ({ active, lastElement }) => {
+const TimelineItemRight: FC<CProps> = ({
+  id,
+  name,
+  date,
+  slogan,
+  active,
+  lastElement,
+}) => {
   return (
     <div className="w-full flex">
-      <div
-        className={`w-1/2 mobile:hidden pr-16 h-40 relative py-3 text-right border-r mobile:border-r-0 ${
+      <Link
+        href={`/${id}`}
+        className={`w-1/2 block mobile:hidden pr-16 h-40 relative py-3 text-right border-r mobile:border-r-0 ${
           active ? "border-primary" : "border-sixth"
         } ${lastElement && "border-none"}`}
       >
         <div className=" text-seventh mobile:hidden">
-          <Typography.H6>02 September, 2023</Typography.H6>
+          <Typography.H6>{formatDate(date)}</Typography.H6>
         </div>
 
         <div className="ring-8 ring-fifth bg-fifth h-8 w-8 rounded-full absolute top-0 -right-4 mobile:hidden">
@@ -46,14 +59,15 @@ const TimelineItemRight: FC<CProps> = ({ active, lastElement }) => {
             </svg>
           </div>
         </div>
-      </div>
-      <div
-        className={`w-1/2 mobile:w-full pl-16 mobile:pl-10 mobile:border-l mobile:h-40 mobile:relative ${
+      </Link>
+      <Link
+        href={`/${id}`}
+        className={`w-1/2 block mobile:w-full pl-16 mobile:pl-10 mobile:border-l mobile:h-40 mobile:relative ${
           active ? "border-primary" : "border-sixth"
         } ${lastElement && "border-none"}`}
       >
         <div className=" text-seventh mb-1 mobile:block laptop:hidden desktop:hidden mac:hidden">
-          <Typography.H6>02 September, 2023</Typography.H6>
+          <Typography.H6>{formatDate(date)}</Typography.H6>
         </div>
         <div className="rounded-md bg-fourth h-24 px-3 py-4 shadow-[0px_-4px_0px_-2px_#CDCDCD] hover:shadow-[0px_-4px_0px_-2px_#FFC93E] drop-shadow-md cursor-pointer hover:drop-shadow-2xl transition-all duration-200">
           <div className="flex gap-3">
@@ -71,13 +85,11 @@ const TimelineItemRight: FC<CProps> = ({ active, lastElement }) => {
             </div>
             <div>
               <Typography.H4 bold>
-                <span className="text-secondary">Freezing Edge 2023</span>
+                <span className="text-secondary">{name}</span>
               </Typography.H4>
               <div className="mt-3 text-seventh">
                 <Typography.H6>
-                  <span className="text-seventh">
-                    The edge isn&apos;t bleeding, it&apos;s freezing!
-                  </span>
+                  <span className="text-seventh">{slogan}</span>
                 </Typography.H6>
               </div>
             </div>
@@ -111,7 +123,7 @@ const TimelineItemRight: FC<CProps> = ({ active, lastElement }) => {
             </svg>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

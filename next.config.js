@@ -3,9 +3,12 @@ const nextConfig = {
     experimental: {
         appDir: true,
     },
-    // images: {
-    //     domains: [''],
-    // },
+    env: {
+        API_URL: "https://api.react-finland.fi/graphql",
+    },
+    images: {
+        domains: ['api.react-finland.fi'],
+    },
     webpack(config) {
         config.experiments = {
             ...config.experiments,

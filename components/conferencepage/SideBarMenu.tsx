@@ -11,7 +11,7 @@ import Sponsor from "./Sponsor";
 interface IProps {
   selectedMenu: String;
   setSelectedMenu: (id: String) => void;
-  //conference: IConference;
+  conference: any;
 }
 
 interface IMenuItem {
@@ -26,7 +26,11 @@ const menuItemsArray = [
   { id: "sponsors", label: "Sponsors" },
 ];
 
-const SideBarMenu: FC<IProps> = ({ selectedMenu, setSelectedMenu }) => {
+const SideBarMenu: FC<IProps> = ({
+  selectedMenu,
+  setSelectedMenu,
+  conference,
+}) => {
   const [menuItems, setMenuItems] = useState<IMenuItem[]>(menuItemsArray);
   const [screenSize, setScreenSize] = useState<number>(
     globalThis.window?.innerWidth
@@ -107,10 +111,18 @@ const SideBarMenu: FC<IProps> = ({ selectedMenu, setSelectedMenu }) => {
             </div>
             {menuItem.id === selectedMenu ? (
               <div className="bg-fourth w-full p-8 mobile:p-4 rounded-lg mobile:flex flex-col gap-6 hidden">
-                {selectedMenu == "organizer" && <OrganizersProfile />}
-                {selectedMenu == "speakers" && <SpeakersProfile />}
-                {selectedMenu == "schedule" && <Schedule />}
-                {selectedMenu == "sponsors" && <Sponsor />}
+                {selectedMenu == "organizer" && (
+                  <OrganizersProfile organizer={conference?.organizer} />
+                )}
+                {selectedMenu == "speakers" && (
+                  <SpeakersProfile speakers={conference?.speakers} />
+                )}
+                {selectedMenu == "schedule" && (
+                  <Schedule schedules={conference?.schedules} />
+                )}
+                {selectedMenu == "sponsors" && (
+                  <Sponsor sponsors={conference?.sponsors} />
+                )}
               </div>
             ) : null}
           </div>

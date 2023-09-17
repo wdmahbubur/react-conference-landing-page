@@ -1,12 +1,25 @@
 import React, { FC } from "react";
 import Typography from "../shared/Typography";
+import formatDate from "@/utils/formatDate";
+import Link from "next/link";
 
 interface CProps {
+  id?: string;
+  name?: string;
+  date?: string;
+  slogan?: string;
   active?: Boolean;
   lastElement?: Boolean;
 }
 
-const TimelineItemLeft: FC<CProps> = ({ active, lastElement }) => {
+const TimelineItemLeft: FC<CProps> = ({
+  id,
+  name,
+  date,
+  slogan,
+  active,
+  lastElement,
+}) => {
   return (
     <div className="w-full flex">
       <div
@@ -15,9 +28,12 @@ const TimelineItemLeft: FC<CProps> = ({ active, lastElement }) => {
         } ${lastElement && "border-none"}`}
       >
         <div className="text-seventh mb-1 mobile:block laptop:hidden desktop:hidden mac:hidden">
-          <Typography.H6>02 September, 2023</Typography.H6>
+          <Typography.H6>{formatDate(date)}</Typography.H6>
         </div>
-        <div className="rounded-md bg-fourth h-24 px-3 py-4 shadow-[0px_-4px_0px_-2px_#CDCDCD] hover:shadow-[0px_-4px_0px_-2px_#FFC93E] drop-shadow-md cursor-pointer hover:drop-shadow-2xl transition-all duration-200">
+        <Link
+          className="rounded-md bg-fourth h-24 px-3 py-4 shadow-[0px_-4px_0px_-2px_#CDCDCD] hover:shadow-[0px_-4px_0px_-2px_#FFC93E] drop-shadow-md cursor-pointer hover:drop-shadow-2xl transition-all duration-200 block"
+          href={`/${id}`}
+        >
           <div className="flex gap-3">
             <div>
               <svg
@@ -33,18 +49,16 @@ const TimelineItemLeft: FC<CProps> = ({ active, lastElement }) => {
             </div>
             <div>
               <Typography.H4 bold>
-                <span className="text-secondary">Freezing Edge 2023</span>
+                <span className="text-secondary">{name}</span>
               </Typography.H4>
               <div className="mt-3">
                 <Typography.H6>
-                  <span className="text-seventh">
-                    The edge isn&apos;t bleeding, it&apos;s freezing!
-                  </span>
+                  <span className="text-seventh">{slogan}</span>
                 </Typography.H6>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
         <div className="ring-8 ring-fifth bg-fifth h-8 w-8 rounded-full absolute top-0 -right-4 mobile:right-0 mobile:-left-4 flex justify-center items-center">
           <div
             className={`ring-1 h-8 w-8 rounded-full p-1 flex justify-center items-center ${
@@ -75,7 +89,7 @@ const TimelineItemLeft: FC<CProps> = ({ active, lastElement }) => {
         </div>
       </div>
       <div className="w-1/2 pl-16 py-3 text-seventh mobile:hidden">
-        <Typography.H6>02 September, 2023</Typography.H6>
+        <Typography.H6>{formatDate(date)}</Typography.H6>
       </div>
     </div>
   );
