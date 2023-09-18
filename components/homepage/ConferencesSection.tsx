@@ -27,6 +27,8 @@ const Conferences: FC<CProps> = ({ conferences, loading }) => {
       </div>
       <div className="w-2/3 mobile:w-full mx-auto mt-10 mobile:mt-10 mobile:px-10">
         <div className="relative">
+          {/* when data is loading, show loading animation */}
+          {/* start loading animation */}
           {loading && (
             <div>
               <TimelineItemLeftLoading />
@@ -35,6 +37,8 @@ const Conferences: FC<CProps> = ({ conferences, loading }) => {
               <TimelineItemRightLoading />
             </div>
           )}
+          {/* end loading animation */}
+          {/* when data is not loading, show data */}
           {!loading &&
             conferences?.length > 0 &&
             conferences?.map((conference: InConference, index: number) => {

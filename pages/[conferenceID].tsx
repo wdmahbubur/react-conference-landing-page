@@ -24,6 +24,7 @@ const Conference: NextPage = () => {
       <Head>
         <title>Conference Name | React Conference</title>
       </Head>
+      {/* when data is loading, show loading animation */}
       {loading ? (
         <div>
           <div className="bg-sixth bg-opacity-20 h-14 rounded-lg w-96 mb-4 animate-pulse"></div>

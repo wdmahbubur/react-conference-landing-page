@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+// get all conferences
 export const GET_CONFERENCES = gql`
     query getConferences {
   conferences {

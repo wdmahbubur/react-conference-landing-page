@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+// get conference by id
 export const GET_CONFERENCE = gql`
   query Conference($conferenceID: ID!) {
   conference(id: $conferenceID) {

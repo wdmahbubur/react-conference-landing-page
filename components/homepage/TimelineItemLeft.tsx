@@ -27,9 +27,12 @@ const TimelineItemLeft: FC<CProps> = ({
           active ? "border-primary" : "border-sixth"
         } ${lastElement && "border-none"}`}
       >
+        {/* start show date on mobile */}
         <div className="text-seventh mb-1 mobile:block laptop:hidden desktop:hidden mac:hidden">
           <Typography.H6>{formatDate(date)}</Typography.H6>
         </div>
+        {/* end show date on mobile */}
+        {/* start card */}
         <Link
           className="rounded-md bg-fourth h-24 px-3 py-4 shadow-[0px_-4px_0px_-2px_#CDCDCD] hover:shadow-[0px_-4px_0px_-2px_#FFC93E] drop-shadow-md cursor-pointer hover:drop-shadow-2xl transition-all duration-200 block"
           href={`/${id}`}
@@ -59,6 +62,8 @@ const TimelineItemLeft: FC<CProps> = ({
             </div>
           </div>
         </Link>
+        {/* end card */}
+        {/* start middle line ring and icon */}
         <div className="ring-8 ring-fifth bg-fifth h-8 w-8 rounded-full absolute top-0 -right-4 mobile:right-0 mobile:-left-4 flex justify-center items-center">
           <div
             className={`ring-1 h-8 w-8 rounded-full p-1 flex justify-center items-center ${
@@ -87,10 +92,13 @@ const TimelineItemLeft: FC<CProps> = ({
             </svg>
           </div>
         </div>
+        {/* end middle line ring and icon */}
       </div>
+      {/* start show date on desktop */}
       <div className="w-1/2 pl-16 py-3 text-seventh mobile:hidden">
         <Typography.H6>{formatDate(date)}</Typography.H6>
       </div>
+      {/* end show date on desktop */}
     </div>
   );
 };

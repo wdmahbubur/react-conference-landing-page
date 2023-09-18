@@ -27,10 +27,12 @@ const TimelineItemRight: FC<CProps> = ({
           active ? "border-primary" : "border-sixth"
         } ${lastElement && "border-none"}`}
       >
+        {/* start show date on desktop */}
         <div className=" text-seventh mobile:hidden">
           <Typography.H6>{formatDate(date)}</Typography.H6>
         </div>
-
+        {/* end show date on desktop */}
+        {/* start middle line ring and icon on desktop*/}
         <div className="ring-8 ring-fifth bg-fifth h-8 w-8 rounded-full absolute top-0 -right-4 mobile:hidden">
           <div
             className={`ring-1 h-8 w-8 rounded-full p-1 flex justify-center items-center ${
@@ -59,6 +61,7 @@ const TimelineItemRight: FC<CProps> = ({
             </svg>
           </div>
         </div>
+        {/* end middle line ring and icon on desktop*/}
       </Link>
       <Link
         href={`/${id}`}
@@ -66,9 +69,12 @@ const TimelineItemRight: FC<CProps> = ({
           active ? "border-primary" : "border-sixth"
         } ${lastElement && "border-none"}`}
       >
+        {/* start show date on mobile*/}
         <div className=" text-seventh mb-1 mobile:block laptop:hidden desktop:hidden mac:hidden">
           <Typography.H6>{formatDate(date)}</Typography.H6>
         </div>
+        {/* end show date on mobile*/}
+        {/* start card */}
         <div className="rounded-md bg-fourth h-24 px-3 py-4 shadow-[0px_-4px_0px_-2px_#CDCDCD] hover:shadow-[0px_-4px_0px_-2px_#FFC93E] drop-shadow-md cursor-pointer hover:drop-shadow-2xl transition-all duration-200">
           <div className="flex gap-3">
             <div>
@@ -95,6 +101,8 @@ const TimelineItemRight: FC<CProps> = ({
             </div>
           </div>
         </div>
+        {/* end card */}
+        {/* start middle line ring and icon on mobile*/}
         <div className="ring-8 ring-fifth bg-fifth h-8 w-8 rounded-full absolute top-0 -left-4 mobile:block laptop:hidden desktop:hidden mac:hidden">
           <div
             className={`ring-1 h-8 w-8 rounded-full p-1 flex justify-center items-center ${
@@ -123,6 +131,7 @@ const TimelineItemRight: FC<CProps> = ({
             </svg>
           </div>
         </div>
+        {/* end middle line ring and icon on mobile*/}
       </Link>
     </div>
   );
