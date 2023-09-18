@@ -7,7 +7,7 @@ const Navbar: FC = () => {
     <section className="w-full py-4 mx-auto flex items-center justify-between px-32 absolute left-0 right-0 top-10 mobile:top-6 tablet:px-16 mobile:px-6">
       <Link href="/" className="sm:mx-auto">
         <div className="relative h-11 w-36 tablet:h-9 tablet:w-32 mobile:h-7 mobile:w-24">
-          <Image src="/react-logo.png" alt="Logo" fill />
+          <Image src="/logo.png" alt="Logo" fill />
         </div>
       </Link>
       <nav className="tablet:hidden mx-auto">

@@ -6,7 +6,7 @@ const Footer: FC = () => {
   return (
     <section className="bg-secondary py-20 px-28 mobile:px-16 text-center">
       <Image
-        src="/react-logo-white.png"
+        src="/logo-white.png"
         alt="React Logo"
         width={176}
         height={48}
